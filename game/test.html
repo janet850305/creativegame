@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1 id="time">現在時間:<h1>
+</body>
+</html>
+<script type="text/javascript">
+clockstart();
+function clockstart(){
+var PtimeCnt=8;
+var timecount=0;
+var timestart = setInterval(function(){
+		timecount++;
+
+
+var temp=PtimeCnt-timecount;
+document.getElementById("time").innerHTML="現在時間"+temp;
+}
+, 1000);//時間計算等動態表現
+}
+
+function clockfunc(){
+//	console.log("已經過了"+timecount+"秒");
+
+
+}
+</script>

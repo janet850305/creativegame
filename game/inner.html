@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+
+   <div id="header">
+   <button  type="button" class="left-slidebar" click="loadPlayer()">
+        <img src="image/player.png" >
+     </button>
+     <label type="label" class="theme" value="">主題</label>
+     <label id="clock" type="label" class="timeLB" value="">8</label>
+ </div>
+     <div class="turnPlayer">操作玩家：玩家1</div>
+  <body style="background:   #58cbff;">
+  <!--input type="text" name="">
+
+  <botton class="enter" onclick="join()">加入遊戲</botton-->
+  <div id="divId">
+  <button class="game_btn" id="1" >ㄅ/A</button>
+  <button class="game_btn" id="2" >ㄆ/B</button>
+  <button class="game_btn" id="3" >ㄇ/C</button>
+  <button class="game_btn" id="4" >ㄈ/D</button>
+  <button class="game_btn" id="5" >ㄉ/E</button>
+  <button class="game_btn" id="6" >ㄊ/F</button>
+  <button class="game_btn" id="7" >ㄋ/G</button>
+  <button class="game_btn" id="8" >ㄌ/H</button>
+  <button class="game_btn" id="9" >ㄍ/I</button>
+  <button class="game_btn" id="10" >ㄎ/J</button>
+  <button class="game_btn" id="11" >ㄏ/K</button>
+  <button class="game_btn" id="12" >ㄐ/L</button>
+  <button class="game_btn" id="13" >ㄑ/M</button>
+  <button class="game_btn" id="14" >ㄒ/N</button>
+  <button class="game_btn" id="15" >ㄓ/O</button>
+  <button class="game_btn" id="16" >ㄔ/P</button>
+  <button class="game_btn" id="17" >ㄕ/Q</button>
+  <button class="game_btn" id="18" >ㄖ/R</button>
+  <button class="game_btn" id="19" >ㄗ/S</button>
+  <button class="game_btn" id="20" >ㄘ/T</button>
+  <button class="game_btn" id="21" >ㄙ/U</button>
+  <button class="game_btn" id="22" >ㄧ/V</button>
+  <button class="game_btn" id="23" >ㄨ/W</button>
+  <button class="game_btn" id="24" >ㄩ/X</button>
+  <button class="game_btn" id="25" >ㄚ/Y</button>
+  <button class="game_btn" id="26" >ㄛ/Z</button>
+
+
+</div>
+  <!--button class="reset" onclick="reset()">Reset</button>
+  <button class="change" onclick="change()">Change</button-->
+
+<div id="player"></div>
+    <label type="label" id="scoreLabel" value="">score:0</label>
+    <div id ="showplayer" off-canvas="example-1 left reveal" style="background:#0098dc;">
+          <button type="button" class="closebtn" data-dismiss="modal" aria-label="Close" style="width: 35px;height: 35px;border-color :transparent;background:transparent;position:absolute;right:5px;">
+            <span aria-hidden="true" style="font-size: 24px " >&times;</span>
+          </button>
+          <h2 style="margin-top: 10px ;margin-left: 10px;">Thinking Word</h2>
+          <p class="scorelist" id="p1">Player1 score:0</p>
+          <p class="scorelist" id="p2">Player2 score:0</p>
+          <p class="scorelist" id="p3">Player3 score:0</p>
+    </div>
+    
+    <!--button type="button" class="failbtn" data-toggle="modal" data-target="#failModal" value="">檢舉</button-->
+<!--div id="divpl">
+  <div class="pl">Player1</div>
+  <div class="pl">Player2</div>
+  <div class="pl">Player3</div>
+  <div class="pl">Player4</div>
+  <div class="pl">Player5</div>
+</div-->
+
+
+<style type="text/css">
+  .pl{
+  font-size:40px;
+  font-weight:bold;
+  display: block;
+  width: 120px;
+  height: 120px;
+  border-style: solid;
+  border-width:  3px;
+  border-color: #AC7300;  
+  background: #FFB92C;
+  background-size: 100%;
+  color: #FFF;
+  outline: none;
+  cursor: pointer;
+  transition: .5s;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: Microsoft YaHei;
+  }
+  #divpl {
+  display: grid;
+  grid-template-columns:  repeat(5, 1fr) ;
+  margin-left:300px;
+  margin-right:200px;
+}
+#divId {
+  display: grid;
+  grid-template-columns:  repeat(4, 1fr) ;
+  margin-left:50px; 
+  margin-right:200px;
+}
+.game_btn{
+ font-size:15px;
+  font-weight:bold;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-style: solid;
+  border-width:  3px;
+  border-color: #AC7300;  
+  background: #FFB92C;
+  background-size: 100%;
+  color: #FFF;
+  outline: none;
+  cursor: pointer;
+  transition: .5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: Microsoft JhengHei;
+}
+.game_btn:hover{
+/*
+  background-color: #8b8b8b; /* Green 
+  color: #fff;*/
+
+}
+.gamebtn:active{
+  background-color: #8b8b8b; 
+  color: #7f7f7f;
+}
+
+#header{
+  display: grid;
+  grid-template-columns:  repeat(3, 1fr) ;
+  margin-left:10px;
+  align-content: center;
+}
+.failbtn{
+  border-radius: 30px;
+  font-size:18px;
+  font-weight:bold;
+  width: 100px;
+  height: 60px;
+  border-style: solid;
+  border-width:  3px;
+  border-color: #AC0B0B;  
+  background: #EE1212;
+  background-size: 100%;
+  color: #FFF;
+  outline: none;
+  cursor: pointer;
+  transition: .5s;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position:absolute;
+  right:50px;
+}
+.theme{
+  text-align:center;
+  line-height:55px;
+  border-radius: 25px;
+  font-size:40px;
+  font-weight:bold;
+  padding-top:5px;
+  width: 150px;
+  height: 50px;
+  border-style: solid;
+  border-width:  3px;
+  border-color: #FFB92C;  
+  background: #FFFFFF;
+  background-size: 100%;
+  color: #101010;
+  outline: none;
+  cursor: pointer;
+  transition: .5s;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.timeLB{
+  text-align:center;
+  line-height:60px;
+  border-radius: 50px;
+
+  font-size:30px;
+  font-weight:bold;
+  margin-left: 20px;
+  width: 50px;
+  height: 50px;
+  border-style: solid;
+  border-width:  2px;
+  border-color: #FFB92C;  
+  background: #FFFFFF;
+  background-size: 100%;
+  color: #101010;
+  transition: .5s;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.left-slidebar{
+
+  position:relative;
+
+  text-align:center;
+  line-height:30px;
+  border-radius: 100px;
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-style: solid;
+  border-width:  2px;
+  border-color: #FFB92C;  
+  background: #fff;
+  background-size: 100%;
+  color: #101010;
+  transition: .5s;
+  margin-top: 20px;
+}
+.listshow{
+  font-size: 24px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.turnPlayer{
+  text-align: center;
+  font-size: 40px;
+  font-weight:bold;
+  color: #0081ba;
+}
+
+ @media screen and (max-device-width: 700px){
+ 	.gamebtn:active{
+  background-color: #8b8b8b; 
+  color: #7f7f7f;
+}
+.scorelist{
+  font-size: 50px;
+}
+/*.change{
+  width: 300px;
+  height: 80px;
+  font-size: 28px;
+}*/
+.reset{
+  width: 300px;
+  height: 80px;
+  font-size: 28px;
+}
+  .listshow{
+  font-size: 50px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+ .left-slidebar{
+
+  position:relative;
+
+  text-align:center;
+  line-height:30px;
+  border-radius: 100px;
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-style: solid;
+  border-width:  2px;
+  border-color: #FFB92C;  
+  background: #fff;
+  background-size: 100%;
+  color: #101010;
+  transition: .5s;
+  margin-top: 20px;
+}
+ .left-slidebar img{
+  width:50px;
+  height: 50px;
+ }
+.theme{
+  text-align:center;
+  line-height:55px;
+  border-radius: 25px;
+  font-size:40px;
+  font-weight:bold;
+  padding-top:5px;
+  width: 150px;
+  height: 50px;
+  border-style: solid;
+  border-width:  3px;
+  border-color: #FFB92C;  
+  background: #FFFFFF;
+  background-size: 100%;
+  color: #101010;
+  outline: none;
+  cursor: pointer;
+  transition: .5s;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+ #divId {
+  display: grid;
+  grid-template-columns:  repeat(4, 1fr) ;
+
+}
+.game_btn{
+ font-size:15px;
+  font-weight:bold;
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin:7px;
+  border-style: solid;
+  border-width:  3px;
+  border-color: #AC7300;  
+  background: #FFB92C;
+  background-size: 100%;
+  color: #FFF;
+  outline: none;
+  cursor: pointer;
+  transition: .5s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: Microsoft JhengHei;
+
+}
+#scoreLabel{
+  font-size:50px;
+  font-weight:bold;
+  display: block;
+  color: #FFF;
+  margin-top: 10px;
+  position:absolute;
+  left:50px;
+}
+.failbtn{
+  border-radius: 30px;
+  font-size:40px;
+  font-weight:bold;
+  width: 250px;
+  height: 100px;
+  border-style: solid;
+  border-width:  3px;
+  border-color: #AC0B0B;  
+  background: #EE1212;
+  background-size: 100%;
+  color: #FFF;
+  outline: none;
+  cursor: pointer;
+  transition: .5s;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position:absolute;
+  right:50px;
+}
+
+}
+</style>
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <!-- Slidebars v2.0.2 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slidebars/2.0.2/slidebars.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slidebars/2.0.2/slidebars.min.js"></script>
+   <script>
+        
+        //左側欄位控制
+        var controller = new slidebars();
+        controller.init();
+        $( ".left-slidebar" ).on( "click", function ( event ) {
+            event.stopPropagation();
+            controller.toggle( "example-1" );
+        
+        } );
+        $( controller.events ).on( 'opened', function () {
+            $( '[canvas="container"]' ).addClass( 'js-close-any-slidebar' );
+        } );
+        $( controller.events ).on( 'closed', function () {
+            $( '[canvas="container"]' ).removeClass( 'js-close-any-slidebar' );
+        } );
+       
+        $( '.closebtn').on( 'click', function ( event ) {
+            event.stopPropagation();
+            controller.close();
+            console.log("click")
+
+        } );
+        </script>
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase.js"></script>
+  <script src="main.js"></script>
+  <script type="text/javascript">
+
+
+  /*var ref = firebase.database().ref();
+ref.on('value', function (snapshot) {
+  console.log(snapshot.child('button').value().A);
+    document.getElementById('content').textContent = JSON.stringify(snapshot.val(), null, 3);
+})*/
+
+    //firebase.database().ref().set('hi');
+
+ /*   firebase_ref.once('value').then(function(snapshot) {
+      console.log('p:');
+      var test = snapshot.val().A;
+      console.log(test);
+      
+    });
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else { 
+    alert("Geolocation is not supported by this browser.");
+  }
+*/
+
+
+
+    //firebase.database().ref().set('hi');
+
+
+
+
+</script>
